@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# PyTorch model files
+*.pth
+*.pt
+*.ckpt
+
+# Checkpoints and logs
+checkpoints/
+logs/
+results/checkpoints/
+results/logs/
+
+# Data directory
+data/
+
+# Generated images and plots
+results/images/
+results/plots/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# Temporary files
+*.tmp
+*.log
+*.out 
