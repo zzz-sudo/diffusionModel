@@ -13,31 +13,31 @@ def test_imports():
     
     try:
         from config import get_config
-        print("✓ config 模块导入成功")
+        print(" config 模块导入成功")
         
         from dataset import CIFAR10Dataset
-        print("✓ dataset 模块导入成功")
+        print(" dataset 模块导入成功")
         
         from model import UNetModel
-        print("✓ model 模块导入成功")
+        print(" model 模块导入成功")
         
         from diffusion import DiffusionProcess
-        print("✓ diffusion 模块导入成功")
+        print(" diffusion 模块导入成功")
         
         from utils import setup_logging, save_checkpoint
-        print("✓ utils 模块导入成功")
+        print(" utils 模块导入成功")
         
         from train import DiffusionTrainer
-        print("✓ train 模块导入成功")
+        print(" train 模块导入成功")
         
         from sample import DiffusionSampler
-        print("✓ sample 模块导入成功")
+        print(" sample 模块导入成功")
         
         print("\n所有模块导入成功！")
         return True
         
     except Exception as e:
-        print(f"✗ 模块导入失败: {e}")
+        print(f" 模块导入失败: {e}")
         return False
 
 def test_config():
@@ -48,7 +48,7 @@ def test_config():
         from config import get_config
         
         config = get_config()
-        print(f"✓ 配置加载成功")
+        print(f" 配置加载成功")
         print(f"  图像尺寸: {config.model.image_size}")
         print(f"  时间步数: {config.diffusion.num_timesteps}")
         print(f"  批次大小: {config.training.batch_size}")
@@ -72,7 +72,7 @@ def test_model():
         
         # 创建模型
         model = UNetModel(config)
-        print(f"✓ 模型创建成功")
+        print(f" 模型创建成功")
         print(f"  参数数量: {count_parameters(model):,}")
         
         # 测试前向传播
@@ -88,7 +88,7 @@ def test_model():
         
         with torch.no_grad():
             output = model_cpu(x_cpu, timesteps_cpu)
-            print(f"✓ 前向传播成功")
+            print(f" 前向传播成功")
             print(f"  输入形状: {x_cpu.shape}")
             print(f"  输出形状: {output.shape}")
             
@@ -96,14 +96,14 @@ def test_model():
             expected_shape = (batch_size, config.model.out_channels, 
                             config.model.image_size, config.model.image_size)
             if output.shape == expected_shape:
-                print(f"✓ 输出尺寸正确: {expected_shape}")
+                print(f"输出尺寸正确: {expected_shape}")
             else:
-                print(f"✗ 输出尺寸错误，期望: {expected_shape}，实际: {output.shape}")
+                print(f"输出尺寸错误，期望: {expected_shape}，实际: {output.shape}")
         
         return True
         
     except Exception as e:
-        print(f"✗ 模型测试失败: {e}")
+        print(f" 模型测试失败: {e}")
         return False
 
 def test_diffusion():
@@ -118,7 +118,7 @@ def test_diffusion():
         
         # 创建扩散过程
         diffusion = DiffusionProcess(config)
-        print(f"✓ 扩散过程创建成功")
+        print(f" 扩散过程创建成功")
         
         # 测试噪声调度
         print(f"  β值范围: [{diffusion.noise_scheduler.beta_start:.6f}, {diffusion.noise_scheduler.beta_end:.6f}]")
@@ -127,7 +127,7 @@ def test_diffusion():
         return True
         
     except Exception as e:
-        print(f"✗ 扩散过程测试失败: {e}")
+        print(f" 扩散过程测试失败: {e}")
         return False
 
 def test_utils():
@@ -139,18 +139,18 @@ def test_utils():
         
         # 测试随机种子设置
         set_random_seed(42)
-        print("✓ 随机种子设置成功")
+        print(" 随机种子设置成功")
         
         # 测试设备信息获取
         device_info = get_device_info()
-        print("✓ 设备信息获取成功")
+        print(" 设备信息获取成功")
         print(f"  CUDA可用: {device_info['cuda_available']}")
         print(f"  设备名称: {device_info['device_name']}")
         
         return True
         
     except Exception as e:
-        print(f"✗ 工具函数测试失败: {e}")
+        print(f" 工具函数测试失败: {e}")
         return False
 
 def test_dataset():
@@ -165,11 +165,11 @@ def test_dataset():
         
         # 创建数据集管理器
         dataset_manager = CIFAR10Dataset(config)
-        print("✓ 数据集管理器创建成功")
+        print(" 数据集管理器创建成功")
         
         # 获取数据集信息
         info = dataset_manager.get_dataset_info()
-        print(f"✓ 数据集信息获取成功")
+        print(f"  数据集信息获取成功")
         print(f"  类别数量: {info['num_classes']}")
         print(f"  训练集大小: {info['train_size']}")
         print(f"  测试集大小: {info['test_size']}")
@@ -177,7 +177,7 @@ def test_dataset():
         return True
         
     except Exception as e:
-        print(f"✗ 数据集测试失败: {e}")
+        print(f" 数据集测试失败: {e}")
         return False
 
 def main():
@@ -212,13 +212,13 @@ def main():
     print(f"通过: {passed}/{total}")
     
     if passed == total:
-        print("🎉 所有测试通过！扩散模型准备就绪。")
+        print(" 所有测试通过！扩散模型准备就绪。")
         print("\n下一步操作:")
         print("1. 运行 'python dataset.py' 下载数据集")
         print("2. 运行 'python train.py' 开始训练")
         print("3. 训练完成后运行 'python sample.py --checkpoint checkpoints/best_model.pth' 生成图像")
     else:
-        print("❌ 部分测试失败，请检查错误信息。")
+        print(" 部分测试失败，请检查错误信息。")
     
     return passed == total
 
