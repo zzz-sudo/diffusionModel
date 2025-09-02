@@ -1,6 +1,6 @@
 # 扩散模型快速开始指南
 
-## 🚀 快速开始
+##  快速开始
 
 ### 1. 环境准备
 
@@ -57,7 +57,7 @@ python sample.py --checkpoint checkpoints/best_model.pth --mode denoising
 python sample.py --checkpoint checkpoints/best_model.pth --mode interactive
 ```
 
-## 📁 项目结构
+##  项目结构
 
 ```
 diffusionModel/
@@ -80,7 +80,7 @@ diffusionModel/
 └── data/                  # 数据集目录
 ```
 
-## ⚡ 快速配置
+##  快速配置
 
 ### 修改训练参数
 
@@ -101,7 +101,7 @@ config.diffusion.num_timesteps = 100  # 减少时间步数
 config.system.device = "cuda"  # 强制使用GPU
 ```
 
-## 🔧 常见问题
+##  常见问题
 
 ### Q: 训练速度太慢怎么办？
 A: 
@@ -128,7 +128,7 @@ A:
 - 调整学习率
 - 检查数据预处理
 
-## 📊 监控训练
+##  监控训练
 
 ### 实时查看训练进度
 
@@ -144,19 +144,17 @@ A:
 - 训练损失曲线
 - 去噪过程可视化
 
-## 🎯 下一步
+##  下一步
 
 1. **深入理解**: 阅读 `README.md` 了解技术细节
 2. **自定义模型**: 修改 `config.py` 调整模型架构
 3. **扩展功能**: 添加条件生成、风格迁移等功能
 4. **性能优化**: 使用DDIM采样、噪声调度优化等
 
-## 📞 获取帮助
+##  获取帮助
 
 如果遇到问题：
 1. 检查错误日志
 2. 运行 `python test_all.py` 诊断问题
 3. 查看 `README.md` 中的技术细节
 4. 检查依赖是否正确安装
-
-祝你训练愉快！🎉 
