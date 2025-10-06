@@ -239,11 +239,3 @@ python sample.py
 1. Ho, J., et al. "Denoising diffusion probabilistic models." NeurIPS 2020.
 2. Song, J., et al. "Denoising diffusion implicit models." ICLR 2021.
 3. Nichol, A. Q., & Dhariwal, P. "Improved denoising diffusion probabilistic models." ICML 2021.
-
-## 许可证
-
-MIT License
-
-## 贡献
-
-欢迎提交Issue和Pull Request！ 
